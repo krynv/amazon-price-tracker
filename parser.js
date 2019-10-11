@@ -9,10 +9,17 @@ async function checkItem() {
         .evaluate(() => {
             return {
                 title: document.getElementById(`productTitle`).innerText,
-                price: document.getElementById(`priceblock_ourprice`).innerText,
+                price: parseFloat(document.getElementById(`priceblock_ourprice`).innerText.replace('£', '')),
+                currency: document.getElementById(`priceblock_ourprice`).innerText.charAt(0)
             }
         })
         .end();
+
+    if (item.price < 150) {
+        console.log(`Item: ${item.title} is currently on sale for ${item.price}`);
+    } else {
+        console.log(`Not cheap at the moment`);
+    }
 
     console.log(item);
 }
