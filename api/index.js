@@ -29,8 +29,8 @@ const getOcUKItem = async (url) => {
 
                 return {
                     title: document.querySelector('#breadcrumb strong').innerText,
-                    price: parseFloat(document.getElementsByClassName('article_details_price2')[0].children[1].innerText.replace('£', '').replace('*', '')), // ocuk has two tags for this class. We just want the first one
-                    currency: document.getElementsByClassName('article_details_price2')[0].children[1].innerText.charAt(0),
+                    price: parseFloat(document.getElementsByClassName('article_details_price')[0].children[1].innerText.replace('£', '').replace('*', '')), // ocuk has two tags for this class. We just want the first one
+                    currency: document.getElementsByClassName('article_details_price')[0].children[1].innerText.charAt(0),
                 }
             }).end()
         );
@@ -66,11 +66,16 @@ const getMyItem = (url, acceptedPrice) => {
 
 
 // our inputs
-const amazonURL = 'https://www.amazon.co.uk/Samsung-MZ-V7E1T0BW-V-NAND-Express-Solid/dp/B07CGJNLBB';
-const ocukURL = 'https://www.overclockers.co.uk/samsung-970-evo-polaris-1tb-m.2-2280-pci-e-3.0-x4-nvme-solid-state-drive-hd-23p-sa.html';
-const acceptedPrice = 200;
+// const amazonURL = 'https://www.amazon.co.uk/Samsung-MZ-V7E1T0BW-V-NAND-Express-Solid/dp/B07CGJNLBB';
+// const ocukURL = 'https://www.overclockers.co.uk/samsung-970-evo-polaris-1tb-m.2-2280-pci-e-3.0-x4-nvme-solid-state-drive-hd-23p-sa.html';
+// const acceptedPrice = 200;
 
 
-getMyItem(amazonURL, acceptedPrice);
-getMyItem(ocukURL, acceptedPrice);
+// getMyItem(amazonURL, acceptedPrice);
+// getMyItem(ocukURL, acceptedPrice);
 // getMyItem('http://flix.industries', acceptedPrice);
+
+export default {
+    getMyItem,
+    getAmazonItem
+};
